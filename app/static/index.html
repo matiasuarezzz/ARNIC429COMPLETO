@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARINC 429 · Envíos</title><link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header><div class="brand"><span class="mark">A</span><div><strong>ARINC 429</strong><small>CONTROL DE ENVÍOS</small></div></div><span class="badge"><i></i> MODO LOCAL</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">PANEL DE OPERACIÓN</p><h1>Envíos de datos</h1><p class="muted">Configura instrumentos, crea palabras ARINC 429 y consulta el historial.</p></div><div class="status-card"><span class="pulse"></span><div><strong>Consola lista</strong><small>Interfaz en modo simulación</small></div></div></section>
+    <section class="layout">
+      <div class="panel form-panel"><div class="panel-heading"><div><span class="step">01</span><h2>Crear envío</h2></div><span class="tag">NUEVO</span></div>
+        <form id="shipment-form"><label for="instrument">Instrumento</label><select id="instrument" required><option value="">Cargando instrumentos…</option></select>
+          <label for="value">Valor a enviar</label><div class="input-with-unit"><input id="value" type="number" step="any" required placeholder="Ej. 125.5"><span id="units">—</span></div>
+          <button type="submit" class="primary">Generar y enviar <span>→</span></button><p class="hint">El envío guarda el valor y genera la palabra de 32 bits. Las salidas físicas dependen de la configuración de hardware.</p>
+        </form>
+        <div class="divider"></div><div class="panel-heading compact"><div><span class="step">02</span><h2>Instrumentos</h2></div><button id="toggle-instrument" class="text-button">＋ Agregar</button></div>
+        <form id="instrument-form" class="hidden"><label>Nombre</label><input id="instrument-name" required maxlength="100" placeholder="Ej. Altitud">
+          <div class="two-col"><div><label>Etiqueta (0–255)</label><input id="instrument-label" type="number" min="0" max="255" value="0" required></div><div><label>SDI (0–3)</label><input id="instrument-sdi" type="number" min="0" max="3" value="0" required></div></div>
+          <div class="two-col"><div><label>Resolución</label><input id="instrument-resolution" type="number" min="0.000001" step="any" value="1" required></div><div><label>Unidad</label><input id="instrument-units" maxlength="32" placeholder="ft, kt…"></div></div>
+          <button class="secondary" type="submit">Guardar instrumento</button>
+        </form>
+      </div>
+      <div class="panel history-panel"><div class="panel-heading"><div><span class="step">03</span><h2>Historial</h2></div><button class="icon-button" id="refresh" title="Actualizar">↻</button></div><div id="empty" class="empty"><div class="empty-icon">↗</div><strong>Aún no hay envíos</strong><span>Cuando crees un envío aparecerá aquí.</span></div><div class="table-wrap"><table><thead><tr><th>INSTRUMENTO</th><th>VALOR</th><th>PALABRA ARINC</th><th>FECHA</th><th></th></tr></thead><tbody id="shipments"></tbody></table></div></div>
+    </section><div id="toast" role="status" class="toast"></div>
+  </main><script src="/static/app.js"></script>
+</body></html>

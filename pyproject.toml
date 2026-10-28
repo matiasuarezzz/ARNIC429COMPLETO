@@ -1,0 +1,20 @@
+[project]
+name = "arinc429-envios"
+version = "0.1.0"
+description = "Gestión y simulación de envíos ARINC 429"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.30,<1",
+  "sqlalchemy>=2.0,<3",
+  "pymysql>=1.1,<2",
+  "pydantic-settings>=2.5,<3",
+  "pyserial>=3.5,<4",
+]
+
+[project.optional-dependencies]
+audio = ["sounddevice>=0.5,<1", "numpy>=2.0,<3"]
+test = ["pytest>=8,<9", "httpx>=0.27,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

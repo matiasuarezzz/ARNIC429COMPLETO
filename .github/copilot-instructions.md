@@ -1,0 +1,9 @@
+- [x] Verificar la creación de este archivo.
+- [x] Aclarar los requisitos del proyecto.
+- [x] Crear la estructura inicial.
+- [x] Implementar CRUD, interfaz y codificación ARINC 429 en modo seguro de simulación.
+- [x] No se requieren extensiones de VS Code.
+- [ ] Ejecutar pruebas/compilación en un entorno con dependencias Python instalables.
+- [x] Crear tarea de VS Code para iniciar la aplicación; ejecución pendiente de instalar dependencias Python.
+- [ ] Lanzar la aplicación; requiere confirmación del usuario.
+- [x] Documentar uso, base de datos y limitaciones de hardware en README.md.

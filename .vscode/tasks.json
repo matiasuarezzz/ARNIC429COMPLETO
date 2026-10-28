@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Iniciar gestor ARINC 429",
+			"type": "shell",
+			"command": "python3",
+			"args": [
+				"-m",
+				"uvicorn",
+				"app.main:app",
+				"--reload"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
